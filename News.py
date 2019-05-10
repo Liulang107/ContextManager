@@ -15,7 +15,7 @@ def get_data_from_json():
         for item in news['rss']['channel']['items']:
             for word in item['description'].split(' '):
                 if len(word) > 6:
-                    word_list.append(word)
+                    word_list.append(word.lower())
     return word_list
 
 
@@ -41,7 +41,7 @@ def get_data_from_xml():
     for description in root.findall('./channel/item/description'):
         for word in description.text.split(' '):
             if len(word) > 6:
-                word_list.append(word)
+                word_list.append(word.lower())
     return word_list
 
 
